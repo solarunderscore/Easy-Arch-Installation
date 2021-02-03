@@ -40,7 +40,7 @@ At this point, you want to update the system clock. To do this run the command,
 
 `timedatectl set-ntp true`
 
-If you don't see an output you are good, if you see an output wait until you see "Graphical Interface..." and press Control + C to exit that.  
+If you don't see an output you are good, if you see an output wait until you see `[ OK ] Reached target Garphical Interface` and press Control + C to exit that.  
 To check if the system clock is succesfully synced type:
 
 `timedatectl status`
