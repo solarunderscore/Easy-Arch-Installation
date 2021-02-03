@@ -1,4 +1,6 @@
 # Arch Linux Installation
+*A simple, quick, and easy Arch Installation guide.**
+
 This is meant to help people who are new to Arch Linux and need a quick installation guide, I know the Arch wiki can be confusing sometimes so this is why I made this! This is also a little note for myself to use for Arch Linux installations. Congratulations on trying to install Arch, don't worry it won't be as hard as you think! **(Note: Please backup everything before you start anything on this guide, you might have a chance of messing up and wiping drives you don't intend to wipe!)**
 
 ## Prerequisites (Links are at the end of this section)
