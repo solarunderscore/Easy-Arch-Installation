@@ -84,7 +84,7 @@ Your EFI partition name should go where it says `efi_partition`.
 Now mount your EFI partition so you can install your bootloader later. Run the command:
 
 `mkdir /mnt/efi` (to make your directory)  
-`mount /dev/efi_partition` (to mount your EFI to the newly-created directory.)
+`mount /dev/efi_partition /mnt/efi` (to mount your EFI to the newly-created directory.)
 
 Replace `efi_partition` with your actual EFI partition.
 
