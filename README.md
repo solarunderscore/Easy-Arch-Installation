@@ -19,8 +19,7 @@ Depending on what motherboard (it is different for every motherboard, please Goo
 Once you boot into your disk you must wait until you see the command line or something that says "root@archiso ˜ #", that is when you are all set!
 If you have a keymap that is not the default (US QWERTY) you will need to load it and apply it, but in my case, I am using QWERTY and do not need to change this, so I will be skipping over this. If you do need to load a keymap please refer to the Arch Wiki above.
 Firstly, please verify your boot mode by entering this command.  
-`ls /sys/firmware/efi/efivars`
-
+`ls /sys/firmware/efi/efivars`  
 If you see some kind of output this is good, if you do not see an output this guide isn't for you as you will need some extra steps.  
 
 ###### Setting up a network connection
@@ -28,18 +27,16 @@ Now we will set up an internet connection. For this guide, I am using ethernet a
 `ip link`
 
 You should see all your internet devices. Next, you want to verify you have an internet connection by running the command,  
-`ping archlinux.org`
-
+`ping archlinux.org`  
 If you see stuff like, `64 bytes from archlinux.org etc.` then you are set and you have an internet connection. Press Control + C to quit the ping command.
 
 ###### Syncing the system clock
 At this point, you want to update the system clock. To do this run the command,  
-`timedatectl set-ntp true`
-
+`timedatectl set-ntp true`  
 If you don't see an output you are good, if you see an output wait until you see `[ OK ] Reached target Garphical Interface` and press Control + C to exit that.  
-To check if the system clock is succesfully synced type:  
-`timedatectl status`
 
+To check if the system clock is succesfully synced type:  
+`timedatectl status`  
 If you see `System clock synchronized: yes` you are good to go!
 
 ###### Partitioning the disks
@@ -54,13 +51,11 @@ Lastly, we need to do our filesystem/root filesystem. Highlight on the remaining
 
 ###### Formatting the disks
 Now you want to format your new partitions. To format your root filesystem partition type the command:  
-`mkfs.ext4 /dev/root_partition`
-
+`mkfs.ext4 /dev/root_partition`  
 Where it says "root_partition" above it should be the device name. Go back to cfdisk and look under "Device". Under that, it should say /dev/sdaX (X is a number). Find your root filesystem and remember that. For me, the root filesystem is /dev/sda3 so I would enter the command: `mkfs.ext4 /dev/sda3` and press ENTER.
 
 Now you want to make your swap and turn it on. To make your swap run the command,  
-`mkswap /dev/swap_partition`
-
+`mkswap /dev/swap_partition`  
 The same principles apply here. My swap was on /dev/sda2 so instead of `mkswap /dev/swap_partition` it would be `mkswap /dev/sda2`. You can always refer back to cfdisk if you forget your partition names.  
 To turn your swap partition on run the command,  
 `swapon /dev/swap_partition`
@@ -68,47 +63,43 @@ To turn your swap partition on run the command,
 You get it now right? Instead of "swap_partition" you enter your own partition.
 
 Now we want to make or EFI partition. Run the command:  
-`mkfs.fat -F32 /dev/efi_partition`
+`mkfs.fat -F32 /dev/efi_partition`  
+Your EFI partition name should go where it says `efi_partition`.
 
-Your EFI partition name should go where it says `efi_partition`.  
 Now mount your EFI partition so we can install your bootloader later. Run the command:  
 `mkdir /mnt/efi` (to make your directory)  
-`mount /dev/efi_partition /mnt/efi` (to mount your EFI to the newly-created directory.)
+`mount /dev/efi_partition /mnt/efi` (to mount your EFI to the newly-created directory.)  
+Replace `efi_partition` with your actual EFI partition.
 
-Replace `efi_partition` with your actual EFI partition.  
 Now mount your root partition to the new filesystem. To do this enter this line into your console,  
 `mount /dev/root_partition /mnt`  
 Replace `root_partition` with your root partition. Mounting the root partition will allow us to access the partition and install packages.
 
 ###### Installing essential packages to make our system run
 Now we will install the essential packages to actually make our system run! To install these packages run the command,  
-`pacstrap /mnt base linux linux-firmware`
-
+`pacstrap /mnt base linux linux-firmware`  
 Press ENTER and let it install!
 
 ###### Generating the fstab
 Generate the fstab file with the following command,  
-`genfstab -U /mnt >> /mnt/etc/fstab`
-
+`genfstab -U /mnt >> /mnt/etc/fstab`  
 Don't fright if you don't get an output!
 
 ###### Entering your new filesystem
 Enter the newly created filesystem by running,  
-`arch-chroot /mnt`
-
+`arch-chroot /mnt`  
 This should now divert you to your new root directory!
 
 ###### Setting up your system clock
 Time to set up your timezone for your system clock! To do this simply type:  
-`ln -sf /usr/share/zoneinfo/Region/City /etc/localtime`
-
+`ln -sf /usr/share/zoneinfo/Region/City /etc/localtime`  
 But replace "Region" and "City" with the options they provided. Press TAB on your keyboard when you get to `/usr/share/zoneinfo/` to see all the options.  
+
 Now sync the hardware clock by doing  
 `hwclock --systohc`
 
 ###### Installing a console text editor
 Now it is time to install your favorite console text editor! In my case I will install nano, but you can obviously install another text editor like vi, vim, or even neovim. The world is your oyster I'm just living in it!  
 To install nano, run:  
-`pacman -Sy nano`
-
+`pacman -Sy nano`  
 This shall sync your repositories (repo for short) and will install nano text editor!
