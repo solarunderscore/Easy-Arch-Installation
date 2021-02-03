@@ -94,7 +94,7 @@ This should now divert you to your new root directory!
 ###### Setting up your system clock
 Time to set up your timezone for your system clock! To do this simply type:  
 `ln -sf /usr/share/zoneinfo/Region/City /etc/localtime`  
-But replace "Region" and "City" with the options they provided. Press TAB on your keyboard when you get to `/usr/share/zoneinfo/` to see all the options.  
+But replace "Region" and "City" with the options they provided. Press TAB on your keyboard when you get to `/usr/share/zoneinfo/` to see all the options. *Exmaple:`ln -sf /usr/share/zoneinfo/US/Eastern`*
 
 Now sync the hardware clock by doing  
 `hwclock --systohc`
