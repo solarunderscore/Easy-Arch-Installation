@@ -78,7 +78,7 @@ Replace `root_partition` with your root partition. Mounting the root partition w
 ###### Installing essential packages to make our system run
 Now we will install the essential packages to actually make our system run! To install these packages run the command,  
 `pacstrap /mnt base linux linux-firmware`  
-Press ENTER and let it install!
+Press ENTER then press Y, and let it install!
 
 ###### Generating the fstab
 Generate the fstab file with the following command,  
