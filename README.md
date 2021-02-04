@@ -125,10 +125,10 @@ In this new file type the locale you just uncommented. When you type this rememb
 Write the file out and quit/exit.
 
 ###### Configure your keyboard layout
-For non-QWERTY(US) users out there you will need to refer to the Arch Wiki and change your keyboard layout. I am using QWERTY right now so this does not apply to me. However if this does apply to you here is the Arch Wiki going over this [here](https://wiki.archlinux.org/index.php/Installation_guide#Localization). Your host name will appear on your local network!
+For non-QWERTY(US) users out there you will need to refer to the Arch Wiki and change your keyboard layout. I am using QWERTY right now so this does not apply to me. However if this does apply to you here is the Arch Wiki going over this [here](https://wiki.archlinux.org/index.php/Installation_guide#Localization).
 
 ###### Create your host name and host domain
-Creating your host name and host domain is fairly easy. Keep in mind that you can make your host name anything! In my case I will call my system "arch", but you can name it anything you want!
+Creating your host name and host domain is fairly easy. Keep in mind that you can make your host name anything! In my case I will call my system "arch", but you can name it anything you want! Your host name will appear on your local network!
 
 To edit this file, open up the hostname file with your text editor.  
 `nano /etc/hostname`  
