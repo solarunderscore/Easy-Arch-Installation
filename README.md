@@ -223,7 +223,7 @@ Once you boot into your new system type in your username you set and the passwor
 Type in your password for root and now you should be logged in as root!
 
 To actually configure the network manager *(for this guide I will be using ethernet)* you need to run this command to change your command directory.  
-`cd /etc/netcl`  
+`cd /etc/netctl`  
 Then you can type `ls` to list all the contents of the folder.  
 To configure the network manager type:
 `cp examples/ethernet-dhcp ./custom-dhcp-profile`  
