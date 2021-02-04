@@ -98,7 +98,7 @@ Now sync the hardware clock by doing
 Now it is time to install your favorite console text editor! In my case I will install nano, but you can obviously install another text editor like vi, vim, or even neovim. The world is your oyster I'm just living in it!  
 To install nano, run:  
 `pacman -Sy nano`  
-This shall sync your repositories (repo for short) and will install nano text editor!
+This shall sync your repositories (repo for short) and will install nano the text editor!
 
 ###### Configuring your locale
 We are going to configure our locale. The locale is to define your reigon and language. For my usage I am an English speakers so I will be uncommenting the `en_US.UTF-8 UTF-8`.  
