@@ -4,7 +4,7 @@
 This is meant to help people who are new to Arch Linux and need a quick installation guide, I know the Arch Wiki can be confusing sometimes so this is why I made this! This is also a little note for myself to use for Arch Linux installations. Congratulations on trying to install Arch, don't worry it won't be as hard as you think! **(Note: Please backup everything before you start anything on this guide, you might have a chance of messing up and wiping drives you don't intend to wipe!)**
 
 ## Prerequisites (Links are at the end of this section)
-First things first, you obviously need a 4-8GB flash drive for your Arch install. Get this useful program called "balenaetcher", that's should help you burn your ISO to the USB drive. After you get that, get the Arch Linux ISO from the mirror list. Chose the one called "archlinux-XXXX.XX.XX-x86_64.iso" (the X's are for the Arch Linux version update date). Fire up balenaetcher and select where you downloaded your Arch Linux ISO file, click Next, and select the drive you want to burn the USB to **(Careful, this will delete everything on your drive so please back it up if you have anything on it).** Continue with the process and it shall burn it to the USB!
+First things first, you obviously need a 4-8GB flash drive for your Arch install. Get this useful program called "balenaetcher", that's should help you burn your ISO to the USB drive. After you get that, get the Arch Linux ISO from the mirror list. Chose the one called "archlinux-XXXX.XX.XX-x86_64.iso" (the X's are for the Arch Linux version update date). Fire up balenaetcher and select where you downloaded your Arch Linux file, click Next, and select the drive you want to burn the USB to **(Careful, this will delete everything on your drive so please back it up if you have anything on it).** Continue with the process and it shall burn it to the USB!
 
 *Links:*  
 Arch Linux ISO Download: https://archlinux.org/download/  
@@ -338,5 +338,5 @@ Now reboot into Xfce and you should be good to go!
 
 # Conclusion
 Thank you for reading and follow this guide! If this helped you I am happy to help! If anything is outdated in the guide please let me know in our issue tab on this GitHub repo! Again here are all the links for Arch Wiki and balenaetcher.  
-Arch Wiki: https://wiki.archlinux.org/
+Arch Wiki: https://wiki.archlinux.org/  
 balenaetcher: https://www.balena.io/etcher/
