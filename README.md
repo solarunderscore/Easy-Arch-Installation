@@ -95,7 +95,7 @@ Now sync the hardware clock by doing
 `hwclock --systohc`
 
 ###### Installing a console text editor
-Now it is time to install your favorite console text editor! In my case I will install nano, but you can obviously install another text editor like vi, vim, or even neovim. The world is your oyster I'm just living in it!  
+Now it is time to install your favorite console text editor! In my case I will install nano, but you can obviously install another text editor like, vi, vim, or even neovim. The world is your oyster I'm just living in it!  
 To install nano, run:  
 `pacman -Sy nano`  
 This shall sync your repositories (repo for short) and will install nano the text editor!
