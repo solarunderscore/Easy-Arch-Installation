@@ -113,7 +113,7 @@ Scroll down with your arrow key until you go pass the first instance of `en_US.U
 `en_US.UTF-8 UTF-8`  
 Now write the file and quit. To do this press Control + X then press Y and then ENTER.
 
-Now it is time to generate the new locale. Type the command into the terminal,
+Now it is time to generate the new locale. Type the command into the terminal,  
 `locale-gen`  
 and it should regenerate the locale, if there are any errors it should say so, but if it doesn't you should see the output `Generation complete.`
 
