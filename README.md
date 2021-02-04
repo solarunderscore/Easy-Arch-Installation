@@ -281,7 +281,7 @@ There are many desktop environments out there! There are ones like Cinnamon, Enl
 ###### Installing KDE
 To install KDE it is really simple! Run the following commands in your terminal!  
 `pacman -Syu` (this updates the system)  
-`pacman -S xorg` (this installs vital programs that you will need for your DE)
+`pacman -S xorg` (this installs vital programs that you will need for your DE)  
 `pacman -S plasma-meta kde-application` (for KDE applications you are able to select all the applications or only some, I recommend getting all of it but if you don't want that get the packages you need such as a terminal emulator and a file manager. If you need that install Konsole which is KDE's terminal emulator and Dolphin which is the file manager. If you are new to Arch or even KDE for that matter get all the applications!)  
 `systemctl enable sddm`  
 `systemctl enable NetworkManager`  
