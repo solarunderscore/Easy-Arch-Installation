@@ -62,7 +62,7 @@ To turn your swap partition on run the command,
 
 You get it now right? Instead of "swap_partition" you enter your own partition.
 
-Now we want to make or EFI partition. Run the command:  
+Now we want to make our EFI partition. Run the command:  
 `mkfs.fat -F32 /dev/efi_partition`  
 Your EFI partition name should go where it says `efi_partition`.
 
