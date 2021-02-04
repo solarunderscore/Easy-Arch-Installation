@@ -279,7 +279,7 @@ Congratulations, you have just installed Arch Linux! I hope this gudie was simpl
 There are many desktop environments out there! There are ones like Cinnamon, Enlightenment, GNOME, KDE, LXDE, MATE, Xfce. I will teach you how to install each and every one of them. KDE is the most like Windows so if you are coming from Windows this is a great option! KDE is also now the lightest desktop environment! GNOME is the most Mac like desktop environment so if you are coming from Mac GNOME is a awesome choice. GNOME is heavier than KDE so keep mind of that.
 
 ###### Installing KDE
-To install KDE it is really simple! Run the following commands in your terminal!
+To install KDE it is really simple! Run the following commands in your terminal!  
 `pacman -Syu` (this updates the system)  
 `pacman -S xorg` (this installs vital programs that you will need for your DE)
 `pacman -S plasma-meta kde-application` (for KDE applications you are able to select all the applications or only some, I recommend getting all of it but if you don't want that get the packages you need such as a terminal emulator and a file manager. If you need that install Konsole which is KDE's terminal emulator and Dolphin which is the file manager. If you are new to Arch or even KDE for that matter get all the applications!)  
