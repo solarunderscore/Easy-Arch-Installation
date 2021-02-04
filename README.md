@@ -156,7 +156,7 @@ You should see some stuff already in here. Just go to the end and press ENTER. N
 Where it says `your-hostname` put the host name you chose in `/etc/hosts`. For `127.0.0.1` you can leave it as is or you can change it if you want a specific IP address linked to your domain. Now you can write the file and quit.
 
 ###### Setting up an internet connection
-*Disclaimer: I am using an wired internet connection, if you are using a wirless one please refer back to the Arch Wiki [here](https://www.wiki.archlinux.org/).*
+*Disclaimer: I am using an wired internet connection, if you are using a wireless one please refer back to the Arch Wiki [here](https://www.wiki.archlinux.org/).*
 
 For this we will be getting a few packages to make our network actually run in our new system. The network manager that we will use in this guide is netctl. You can of course change this to any network manager you want to use, but for this instance I will be using netctl.
 
