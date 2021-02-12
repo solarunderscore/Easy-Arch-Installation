@@ -225,7 +225,7 @@ Type in your password for root and now you should be logged in as root!
 To actually configure the network manager *(for this guide I will be using ethernet)* you need to run this command to change your command directory.  
 `cd /etc/netctl`  
 Then you can type `ls` to list all the contents of the folder.  
-To configure the network manager type:
+To configure the network manager type:  
 `cp examples/ethernet-dhcp ./custom-dhcp-profile`  
 You can chose any other file in `cp examples/` by pressing TAB, you may want to choose the one with wireless connection if you are using WiFi, but in this case I am using ethernet so I will be using the ethernet-dhcp. You can change `custom-dhcp-profile` to anything you want!  
 Now run:  
