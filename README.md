@@ -151,7 +151,7 @@ You should see some stuff already in here. Just go to the end and press ENTER. N
 
 127.0.0.1   localhost
 ::1         localhost
-127.0.1.1   your-hostname.localhost   your-hostname
+127.0.1.1   your-hostname.localdomain   your-hostname
 ```
 Where it says `your-hostname` put the host name you chose in `/etc/hosts`. For `127.0.0.1` you can leave it as is or you can change it if you want a specific IP address linked to your domain. Now you can write the file and quit.
 
