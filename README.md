@@ -14,7 +14,7 @@ balenaetcher Donwload (Windows, MacOS, Linux download): https://www.balena.io/et
 Depending on what motherboard (it is different for every motherboard, please Google your motherboard type and look for its boot menu button), you need to get to your boot menu and select the USB you just created. Select the USB and hit ENTER.
 
 ## Installation
-#### Verify the boot mode
+### Verify the boot mode
 **For this walkthrough I will be using the Arch Wiki installation guide as a guide for me as well, you can check the installation guide that they have [here](https://wiki.archlinux.org/index.php/Installation_guide).**  
 Once you boot into your disk you must wait until you see the command line or something that says "root@archiso ˜ #", that is when you are all set!
 If you have a keymap that is not the default (US QWERTY) you will need to load it and apply it, but in my case, I am using QWERTY and do not need to change this, so I will be skipping over this. If you do need to load a keymap please refer to the Arch Wiki above.
@@ -22,7 +22,7 @@ Firstly, please verify your boot mode by entering this command.
 `ls /sys/firmware/efi/efivars`  
 If you see some kind of output this is good, if you do not see an output this guide isn't for you as you will need some extra steps.  
 
-#### Setting up a network connection
+### Setting up a network connection
 Now we will set up an internet connection. For this guide, I am using ethernet and if you are using WiFi please refer back to the Arch Wiki. Run the command,  
 `ip link`
 
@@ -30,7 +30,7 @@ You should see all your internet devices. Next, you want to verify you have an i
 `ping archlinux.org`  
 If you see stuff like, `64 bytes from archlinux.org etc.` then you are set and you have an internet connection. Press Control + C to quit the ping command.
 
-#### Syncing the system clock
+### Syncing the system clock
 At this point, you want to update the system clock. To do this run the command,  
 `timedatectl set-ntp true`  
 If you don't see an output you are good, if you see an output wait until you see `[ OK ] Reached target Garphical Interface` and press Control + C to exit that.  
@@ -39,7 +39,7 @@ To check if the system clock is succesfully synced type:
 `timedatectl status`  
 If you see `System clock synchronized: yes` you are good to go!
 
-#### Partitioning the disks
+### Partitioning the disks
 It is time to partition the disk (you should've already backed up your stuff to prevent damage.) The tool I personally use is cfdisk, but you can use any other disk utility you want. Run the command,  
 `cfdisk`
 
@@ -49,7 +49,7 @@ Highlight the free space, and press ENTER on "New". Give this partition 2 GB, so
 
 Lastly, we need to do our filesystem/root filesystem. Highlight on the remaining free space and press ENTER twice if you want to use the remainder of the free space. Now highlight "Write" and type "yes" and press ENTER. This will confirm all your changes **(THIS CANNOT BE UNDONE.)** Afterward, you can press "Q" on your keyboard or highlight "Quit" and press ENTER.
 
-#### Formatting the disks
+### Formatting the disks
 Now you want to format your new partitions. To format your root filesystem partition type the command:  
 `mkfs.ext4 /dev/root_partition`  
 Where it says "root_partition" above it should be the device name. Go back to cfdisk and look under "Device". Under that, it should say /dev/sdaX (X is a number). Find your root filesystem and remember that. For me, the root filesystem is /dev/sda3 so I would enter the command: `mkfs.ext4 /dev/sda3` and press ENTER.
@@ -70,23 +70,23 @@ Now mount your root partition to the new filesystem. To do this enter this line 
 `mount /dev/root_partition /mnt`  
 Replace `root_partition` with your root partition. Mounting the root partition will allow us to access the partition and install packages.
 
-#### Installing essential packages to make our system run
+### Installing essential packages to make our system run
 Now we will install the essential packages to actually make our system run! To install these packages run the command,  
 `pacstrap /mnt base linux linux-firmware`  
 Press ENTER then press Y, ENTER, and let it install!
 
-#### Generating the fstab
+### Generating the fstab
 Generate the fstab file with the following command,  
 `genfstab -U /mnt >> /mnt/etc/fstab`  
 Don't fright if you don't get an output!
 
-#### Entering your new filesystem
+### Entering your new filesystem
 Enter the newly created filesystem by running,  
 `arch-chroot /mnt`  
 This should now divert you to your new root directory!
 
 # Seting up your new operating system
-#### Setting up your system clock
+### Setting up your system clock
 Time to set up your timezone for your system clock! To do this simply type:  
 `ln -sf /usr/share/zoneinfo/Region/City /etc/localtime`  
 But replace "Region" and "City" with the options they provided. Press TAB on your keyboard when you get to `/usr/share/zoneinfo/` to see all the options. *Example:`ln -sf /usr/share/zoneinfo/US/Eastern /etc/localtime`*
@@ -94,13 +94,13 @@ But replace "Region" and "City" with the options they provided. Press TAB on you
 Now sync the hardware clock by doing  
 `hwclock --systohc`
 
-#### Installing a console text editor
+### Installing a console text editor
 Now it is time to install your favorite console text editor! In my case I will install nano, but you can obviously install another text editor like, vi, vim, or even neovim. The world is your oyster I'm just living in it!  
 To install nano, run:  
 `pacman -Sy nano`  
 This shall sync your repositories (repo for short) and will install nano the text editor!
 
-#### Configuring your locale
+### Configuring your locale
 We are going to configure our locale. The locale is to define your reigon and language. For my usage I am an English speakers so I will be uncommenting the `en_US.UTF-8 UTF-8`.  
 To edit your config file, enter this:  
 `nano /etc/locale.gen`  
@@ -124,10 +124,10 @@ In this new file type the locale you just uncommented. When you type this rememb
 `LANG=en_US.UTF-8`  
 Write the file out and quit/exit.
 
-#### Configure your keyboard layout
+### Configure your keyboard layout
 For non-QWERTY(US) users out there you will need to refer to the Arch Wiki and change your keyboard layout. I am using QWERTY right now so this does not apply to me. However if this does apply to you here is the Arch Wiki going over this [here](https://wiki.archlinux.org/index.php/Installation_guide#Localization).
 
-#### Create your host name and host domain
+### Create your host name and host domain
 Creating your host name and host domain is fairly easy. Keep in mind that you can make your host name anything! In my case I will call my system "arch", but you can name it anything you want! Your host name will appear on your local network!
 
 To edit this file, open up the hostname file with your text editor.  
@@ -155,7 +155,7 @@ You should see some stuff already in here. Just go to the end and press ENTER. N
 ```
 Where it says `your-hostname` put the host name you chose in `/etc/hosts`. For `127.0.0.1` you can leave it as is or you can change it if you want a specific IP address linked to your domain. Now you can write the file and quit.
 
-#### Setting up an internet connection
+### Setting up an internet connection
 *Disclaimer: I am using an wired internet connection, if you are using a wireless one please refer back to the Arch Wiki [here](https://www.wiki.archlinux.org/).*
 
 For this we will be getting a few packages to make our network actually run in our new system. The network manager that we will use in this guide is netctl. You can of course change this to any network manager you want to use, but for this instance I will be using netctl.
@@ -171,7 +171,7 @@ Press ENTER and install these packages.
 
 We are not quite done yet. We will continue this after we reboot back into the system, but before we do that we have some more things to do.
 
-#### Adding a user
+### Adding a user
 To add a user run the command,  
 `useradd -G wheel,audio,video -m username`  
 Replace `username` with the name you want for your new user. This will create the new user and its home directory.
@@ -188,7 +188,7 @@ Now set a password for your root user by doing,
 `passwd`  
 and enter in your password for your root.
 
-#### Install a bootloader
+### Install a bootloader
 There are many bootloaders out there. There are things like Clover, Syslinux, EFISTUB, but in this case I will use GRUB. Some people say GRUB is slow, but it's really not that slow compared to the others, and on the plus side it support practically any BIOS and UEFI firmware out there.
 
 To install GRUB get these packages by running the command:  
@@ -211,7 +211,7 @@ Now we will create the GRUB configuration file. To do this run,
 `grub-mkconfig -o /boot/grub/grub.cfg`  
 and it should output somethings and the config should be made!
 
-#### Enter your new system!
+### Enter your new system!
 After that you should be able to reboot and enter your new computer. To do this type the commands,  
 `exit`(this will exit the USB installation)  
 `reboot` (this will reboot the system)  
@@ -272,13 +272,13 @@ Now ping a server again to check if you have internet by doing:
 `ping archlinux.org`  
 If you get returns back from the server that means that you have succesfully done it and there are no problems!
 
-#### Finale
+### Finale
 Congratulations, you have just installed Arch Linux! I hope this gudie was simple to follow, if you have any issues please leave it on the issues tab on the GitHub. Right now you will not have a DE (Desktop Environment) to work in and I will show you how to install each one right now! There are also WM (Window Managers), but I will not begin into that yet.
 
 ## Installing a Desktop Environment
 There are many desktop environments out there! There are ones like Cinnamon, Enlightenment, GNOME, KDE, LXDE, MATE, Xfce. I will teach you how to install each and every one of them. KDE is the most like Windows so if you are coming from Windows this is a great option! KDE is also now the lightest desktop environment! GNOME is the most Mac like desktop environment so if you are coming from Mac GNOME is a awesome choice. GNOME is heavier than KDE so keep mind of that.
 
-#### Installing KDE
+### Installing KDE
 To install KDE it is really simple! Run the following commands in your terminal!  
 `pacman -Syu` (this updates the system)  
 `pacman -S xorg` (this installs vital programs that you will need for your DE)  
@@ -287,7 +287,7 @@ To install KDE it is really simple! Run the following commands in your terminal!
 `systemctl enable NetworkManager`  
 That's it! You've installed a DE, now reboot your PC and the new DE will appear!
 
-#### Installing Cinnamon
+### Installing Cinnamon
 Installing Cinnamon is as easy as installing KDE!  
 `pacman -Syu`  
 `pamcan -S xorg`  
@@ -298,7 +298,7 @@ Installing Cinnamon is as easy as installing KDE!
 `systemctl enable NetworkManager`  
 Now reboot your computer and you will get into the Cinnamon desktop environment!
 
-#### Installing Enlightenment
+### Installing Enlightenment
 `curl https://download.enlightenment.org/distors/arch/archlinux/arch/repo.txt -o - | sudo tee -a /etc/pacman.conf`  
 `pacman -Sy && sudo pacman -S efl-git enlightenment-git terminology-git rage-git`  
 `pacman -S lightdm`  
@@ -306,7 +306,7 @@ Now reboot your computer and you will get into the Cinnamon desktop environment!
 `systemctl enable lightdm`  
 Now you can reboot into your new desktop environment!
 
-#### Installing GNOME
+### Installing GNOME
 `pacman -Syu`  
 `pacman -S xorg`  
 `pacman -S gnome`  
@@ -314,7 +314,7 @@ Now you can reboot into your new desktop environment!
 `systemctl enable gdm`  
 Now reboot into your new system!
 
-#### Installing LXDE
+### Installing LXDE
 `pacman -Syu`  
 `pacman -S xorg`  
 `pacman -S lxdm`  
@@ -322,7 +322,7 @@ Now reboot into your new system!
 `systemctl enable lxdm`  
 Now you have installed LXDE! Reboot and you will enter the desktop environment.
 
-#### Installing MATE
+### Installing MATE
 `pacman -Syu`  
 `pacman -S xorg`  
 `pacman -S mate mate-extra`  
@@ -331,7 +331,7 @@ Now you have installed LXDE! Reboot and you will enter the desktop environment.
 `systemctl enable lightdm`  
 Now reboot into your new environment!
 
-#### Installing Xfce
+### Installing Xfce
 `pacman -Syu`  
 `pacman -S xfce4 xfce4-goodies`  
 Now reboot into Xfce and you should be good to go!
