@@ -85,7 +85,7 @@ Enter the newly created filesystem by running,
 `arch-chroot /mnt`  
 This should now divert you to your new root directory!
 
-# Seting up your new operating system
+## Seting up your new operating system
 ### Setting up your system clock
 Time to set up your timezone for your system clock! To do this simply type:  
 `ln -sf /usr/share/zoneinfo/Region/City /etc/localtime`  
