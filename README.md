@@ -70,6 +70,14 @@ Now mount your root partition to the new filesystem. To do this enter this line 
 `mount /dev/root_partition /mnt`  
 Replace `root_partition` with your root partition. Mounting the root partition will allow us to access the partition and install packages.
 
+Now it is time to make the directory for you EFI partiion to install your bootloader. Do the command,  
+`mkdir /mnt/efi`  
+This wil make the */mnt/efi* directory for you bootloader.
+
+Make sure to mount your *efi_partition* to the new EFI directory.  
+`mount /dev/efi_partition /mnt/efi`  
+Make sure to change `efi_partition` to your own partition. This will proceed to mount the EFI partition to the */mnt/efi* directory.
+
 ### Installing essential packages to make our system run
 Now we will install the essential packages to actually make our system run! To install these packages run the command,  
 `pacstrap /mnt base linux linux-firmware`  
@@ -195,17 +203,12 @@ To install GRUB get these packages by running the command:
 `pacman -S grub efibootmgr`  
 and this should install everything you need for GRUB to run!
 
-You may also want to install the OS prober package if you are dual booting, but I will always get this package just incase. Run the command,  
+You may also want to install the OS prober package if you are dual booting, get this package if you are planning on installing another operating system on the same disk. Run the command,  
 `pacman -S os-prober`  
 This should install without any issues.
 
-Now mount your EFI partition so we can install your bootloader. Run the command:  
-`mkdir /mnt/efi` (to make your directory)  
-`mount /dev/efi_partition /mnt/efi` (to mount your EFI to the newly-created directory.)  
-Replace `efi_partition` with your actual EFI partition.
-
 Time to install GRUB to your /efi/ directory. Run this in your terminal,  
-`grub-install --target=x86_64-efi --efi-directory=/mnt/efi/ --bootloader-id=GRUB`
+`grub-install --target=x86_64-efi --efi-directory=/efi/ --bootloader-id=GRUB`
  
 Now we will create the GRUB configuration file. To do this run,  
 `grub-mkconfig -o /boot/grub/grub.cfg`  
