@@ -29,6 +29,21 @@ Now we will set up an internet connection. For this guide, I am using ethernet a
 You should see all your internet devices. Next, you want to verify you have an internet connection by running the command,  
 `ping archlinux.org`  
 If you see stuff like, `64 bytes from archlinux.org etc.` then you are set and you have an internet connection. Press Control + C to quit the ping command.
+#### Wifi
+If you are using wifi use this to help you.  
+```
+iwctl
+
+device list
+
+station {device} scan
+
+station {device} get-networks
+
+station {device} connect {ssid}
+
+Enter your passphrase: 
+```
 
 ### Syncing the system clock
 At this point, you want to update the system clock. To do this run the command,  
